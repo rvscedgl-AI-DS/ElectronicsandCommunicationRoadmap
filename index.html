@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>ECE ULTRA ROADMAP | 15+ Roles | Detailed Career Guides</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #0a2b3a;
+      --secondary: #f39c12;
+      --accent: #fef5e7;
+      --light: #f2f6f9;
+      --dark: #1a2f3f;
+      --text: #1a2c3e;
+      --text-light: #4a627a;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, 'Segoe UI', sans-serif; }
+    body { background: var(--light); color: var(--text); line-height: 1.5; scroll-behavior: smooth; }
+    header { background: var(--primary); color: white; padding: 1rem 2rem; position: sticky; top: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; box-shadow: 0 8px 20px rgba(0,0,0,0.1); }
+    .logo { display: flex; align-items: center; gap: 12px; }
+    .logo-icon { background: var(--secondary); width: 48px; height: 48px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: var(--primary); }
+    .logo-text h1 { font-size: 1.6rem; letter-spacing: -0.5px; }
+    .logo-text span { color: var(--secondary); }
+    .logo-text p { font-size: 0.7rem; opacity: 0.8; letter-spacing: 0.5px; margin-top: 2px; }
+    nav ul { display: flex; gap: 2rem; list-style: none; }
+    nav a { color: white; text-decoration: none; font-weight: 600; transition: 0.2s; padding: 5px 0; border-bottom: 2px solid transparent; }
+    nav a:hover { border-bottom-color: var(--secondary); }
+    .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; cursor: pointer; }
+    .hamburger span { width: 28px; height: 3px; background: white; border-radius: 3px; }
+    .mobile-nav { position: fixed; top: 0; right: -300px; width: 280px; height: 100%; background: var(--primary); z-index: 2000; transition: 0.3s; padding: 80px 20px; box-shadow: -4px 0 15px rgba(0,0,0,0.3); }
+    .mobile-nav.open { right: 0; }
+    .mobile-nav ul { list-style: none; }
+    .mobile-nav li { margin: 1.2rem 0; }
+    .mobile-nav a { color: white; text-decoration: none; font-size: 1.2rem; }
+    .mobile-nav .close { position: absolute; top: 15px; right: 15px; background: var(--secondary); border: none; width: 40px; height: 40px; border-radius: 50%; color: white; font-size: 1.5rem; cursor: pointer; }
+    .overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.5); z-index: 1999; display: none; }
+    .overlay.active { display: block; }
+    .container { max-width: 1300px; margin: 2rem auto; padding: 0 2rem; }
+    .hero { text-align: center; margin-bottom: 3rem; }
+    .hero h1 { font-size: 2.8rem; color: var(--primary); margin-bottom: 1rem; }
+    .hero p { font-size: 1.2rem; color: var(--text-light); max-width: 850px; margin: 0 auto; }
+    .roles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 2rem; margin: 3rem 0; }
+    .role-card { background: white; border-radius: 24px; overflow: hidden; box-shadow: 0 12px 24px -8px rgba(0,0,0,0.1); transition: all 0.25s ease; cursor: pointer; border: 1px solid #e2e8f0; }
+    .role-card:hover { transform: translateY(-8px); box-shadow: 0 24px 36px -12px rgba(0,0,0,0.2); border-color: var(--secondary); }
+    .role-icon { height: 100px; background: linear-gradient(120deg, var(--primary), #1a4a5f); display: flex; align-items: center; justify-content: center; color: white; font-size: 3rem; }
+    .role-content { padding: 1.8rem; }
+    .role-content h3 { font-size: 1.6rem; color: var(--primary); margin-bottom: 0.8rem; }
+    .role-tags { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+    .tag { background: var(--accent); color: var(--primary); padding: 0.3rem 1rem; border-radius: 40px; font-weight: 600; font-size: 0.75rem; }
+    .roadmap-detail { background: white; border-radius: 32px; padding: 2.8rem; margin-bottom: 3rem; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); display: none; }
+    .roadmap-detail.active { display: block; animation: fadeSlide 0.4s; }
+    @keyframes fadeSlide { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .roadmap-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 3px solid var(--accent); padding-bottom: 1rem; margin-bottom: 2rem; flex-wrap: wrap; }
+    .roadmap-header h2 { font-size: 2rem; color: var(--primary); }
+    .close-btn { background: var(--secondary); border: none; width: 46px; height: 46px; border-radius: 50%; color: white; font-size: 1.3rem; cursor: pointer; transition: 0.1s; }
+    .close-btn:hover { background: #e67e22; transform: scale(0.96); }
+    .roadmap-section { margin-bottom: 2.2rem; }
+    .roadmap-section h3 { color: var(--secondary); font-size: 1.5rem; border-left: 5px solid var(--primary); padding-left: 1.2rem; margin-bottom: 1.2rem; }
+    .roadmap-section ul, .roadmap-section p { margin-left: 1.2rem; }
+    .roadmap-section li { margin-bottom: 0.7rem; list-style-type: none; position: relative; padding-left: 1.5rem; }
+    .roadmap-section li::before { content: "▹"; color: var(--secondary); position: absolute; left: 0; }
+    .grid-2col { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.8rem; }
+    .year-progression { display: flex; flex-wrap: wrap; gap: 1.8rem; margin: 1.5rem 0; }
+    .year-card { flex: 1; background: var(--light); border-radius: 20px; padding: 1.5rem; border-top: 5px solid var(--secondary); }
+    footer { background: var(--dark); color: #e2e8f0; margin-top: 4rem; padding: 3rem 2rem 2rem; }
+    .footer-grid { max-width: 1300px; margin: auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; }
+    .footer-grid h4 { color: var(--secondary); margin-bottom: 1rem; }
+    .footer-grid a { color: #cbd5e1; text-decoration: none; display: block; margin: 0.6rem 0; transition: 0.2s; }
+    .footer-grid a:hover { color: white; padding-left: 5px; }
+    .footer-bottom { text-align: center; border-top: 1px solid #2d3e50; padding-top: 2rem; margin-top: 2rem; font-size: 0.9rem; }
+    @media (max-width: 780px) {
+      nav ul { display: none; }
+      .hamburger { display: flex; }
+      .container { padding: 0 1rem; }
+      .roles-grid { grid-template-columns: 1fr; }
+      .roadmap-detail { padding: 1.5rem; }
+      .grid-2col { grid-template-columns: 1fr; }
+    }
+	.logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      width: 50px;
+      height: 50px;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.8rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      position: relative;
+      overflow: hidden;
+    }
+    .logo::before {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--secondary);
+      border-radius: 4px;
+      transform: rotate(45deg);
+      opacity: 0.3;
+    }
+
+    .logo-text {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .logo-text span {
+      color: var(--accent);
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="logo-container">
+      <div class="logo-placeholder">
+        <img src="rvs-logo.jpg" 
+             alt="RVS College Logo"
+             style="width: 75%; height: 100%; object-fit: contain;"
+             onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='<span style=\'color:white;font-weight:bold;font-size:18px\'>RVS</span>';">
+      </div>
+      <div class="college-info">
+        <h2>RVS College of Engineering</h2>
+        <div class="department">Department of Civil Engineering</div>
+      </div>
+    </div>
+  <nav>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#roles">15+ Roles</a></li>
+      <li><a href="#roadmaps-section" id="deepGuidesLink">Deep Guides</a></li>
+      <li><a href="#resources">Mega Library</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+  <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+</header>
+<div class="mobile-nav" id="mobileNav">
+  <button class="close" id="closeMenuBtn">&times;</button>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#roles">Roles</a></li>
+    <li><a href="#roadmaps-section" class="mobile-deep-link">Deep Guides</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</div>
+<div class="overlay" id="overlay"></div>
+
+<div class="container">
+  <div class="hero" id="home">
+    <h1>📡 Electronics & Communication Engineering<br>Ultra-Detailed Role-Based Roadmap</h1>
+    <p>15+ expert career paths | 2500+ lines of technical depth | Year-wise skill progression | Tools | Certifications | Industry benchmarks</p>
+  </div>
+  
+  <div class="roles-grid" id="roles">
+    <div class="role-card" data-roadmap="vlsi"><div class="role-icon"><i class="fas fa-microchip"></i></div><div class="role-content"><h3>VLSI / ASIC Design</h3><p>RTL, Synthesis, Physical Design, STA, DFT, Low-power</p><div class="role-tags"><span class="tag">Verilog</span><span class="tag">Physical Design</span><span class="tag">UPF</span></div></div></div>
+    <div class="role-card" data-roadmap="embedded"><div class="role-icon"><i class="fas fa-microcontroller"></i></div><div class="role-content"><h3>Embedded Systems</h3><p>Firmware, RTOS, ARM, Device Drivers, Bootloaders</p><div class="role-tags"><span class="tag">FreeRTOS</span><span class="tag">C/ARM</span><span class="tag">JTAG</span></div></div></div>
+    <div class="role-card" data-roadmap="telecom"><div class="role-icon"><i class="fas fa-tower-cell"></i></div><div class="role-content"><h3>5G / Telecom Engineer</h3><p>NR, RAN, Core, O-RAN, Network Slicing, Optimization</p><div class="role-tags"><span class="tag">5G NR</span><span class="tag">O-RAN</span><span class="tag">LTE</span></div></div></div>
+    <div class="role-card" data-roadmap="signal"><div class="role-icon"><i class="fas fa-waveform"></i></div><div class="role-content"><h3>DSP / Signal Processing</h3><p>Filters, Adaptive, Audio/Radar, ML on Signals</p><div class="role-tags"><span class="tag">MATLAB</span><span class="tag">Python</span><span class="tag">FFT</span></div></div></div>
+    <div class="role-card" data-roadmap="rf"><div class="role-icon"><i class="fas fa-broadcast-tower"></i></div><div class="role-content"><h3>RF & Microwave Engr</h3><p>Antenna, PA, LNA, VNA, HFSS, ADS, Microwave</p><div class="role-tags"><span class="tag">Smith Chart</span><span class="tag">HFSS</span><span class="tag">S-param</span></div></div></div>
+    <div class="role-card" data-roadmap="hardware"><div class="role-icon"><i class="fas fa-pcb"></i></div><div class="role-content"><h3>Hardware Design (PCB)</h3><p>Schematic, High-speed layout, SI/PI, Altium/Cadence</p><div class="role-tags"><span class="tag">Altium</span><span class="tag">Signal Integrity</span><span class="tag">DFM</span></div></div></div>
+    <div class="role-card" data-roadmap="verification"><div class="role-icon"><i class="fas fa-check-double"></i></div><div class="role-content"><h3>Design Verification (UVM)</h3><p>SystemVerilog, UVM, Formal, Coverage, VIP</p><div class="role-tags"><span class="tag">UVM</span><span class="tag">SVA</span><span class="tag">VCS</span></div></div></div>
+    <div class="role-card" data-roadmap="iot"><div class="role-icon"><i class="fas fa-wifi"></i></div><div class="role-content"><h3>IoT / Edge Computing</h3><p>ESP32, LoRa, MQTT, Cloud, Edge AI, Full stack</p><div class="role-tags"><span class="tag">ESP32</span><span class="tag">AWS IoT</span><span class="tag">LoRaWAN</span></div></div></div>
+    <div class="role-card" data-roadmap="automotive"><div class="role-icon"><i class="fas fa-car"></i></div><div class="role-content"><h3>Automotive Electronics</h3><p>AUTOSAR, CAN, ISO 26262, ADAS, V2X</p><div class="role-tags"><span class="tag">AUTOSAR</span><span class="tag">ISO 26262</span><span class="tag">CANoe</span></div></div></div>
+    <div class="role-card" data-roadmap="mlece"><div class="role-icon"><i class="fas fa-brain"></i></div><div class="role-content"><h3>ML/AI for ECE</h3><p>TinyML, Edge AI, Radio ML, Transformers, NPU</p><div class="role-tags"><span class="tag">TinyML</span><span class="tag">TensorFlow</span><span class="tag">Edge Impulse</span></div></div></div>
+    <div class="role-card" data-roadmap="firmware"><div class="role-icon"><i class="fas fa-code"></i></div><div class="role-content"><h3>Firmware Engineer</h3><p>BSP, Driver Dev, Low-level, Bootloader, RTOS porting</p><div class="role-tags"><span class="tag">C/ASM</span><span class="tag">Linker Script</span><span class="tag">JTAG</span></div></div></div>
+    <div class="role-card" data-roadmap="fpgacpld"><div class="role-icon"><i class="fas fa-robot"></i></div><div class="role-content"><h3>FPGA / RTL Engineer</h3><p>Verilog/VHDL, HLS, Timing closure, High-speed interfaces</p><div class="role-tags"><span class="tag">Xilinx</span><span class="tag">SystemVerilog</span><span class="tag">PCIe</span></div></div></div>
+    <div class="role-card" data-roadmap="robotics"><div class="role-icon"><i class="fas fa-robot"></i></div><div class="role-content"><h3>Robotics Engineer</h3><p>ROS2, Embedded, Sensors, Control, Navigation</p><div class="role-tags"><span class="tag">ROS2</span><span class="tag">SLAM</span><span class="tag">PID</span></div></div></div>
+    <div class="role-card" data-roadmap="govt"><div class="role-icon"><i class="fas fa-landmark"></i></div><div class="role-content"><h3>Govt / PSU (GATE EC)</h3><p>ISRO, DRDO, BEL, BSNL JTO, BARC, NPCIL</p><div class="role-tags"><span class="tag">GATE</span><span class="tag">ISRO</span><span class="tag">PSU</span></div></div></div>
+  </div>
+
+  <!-- ANCHOR FOR DEEP GUIDES SECTION -->
+  <div id="roadmaps-section" style="scroll-margin-top: 90px;">
+    <h2 style="color: var(--primary); margin: 2rem 0 1rem; font-size: 2rem; text-align: center;">📌 Detailed Career Guides (Click any role card or use nav)</h2>
+  </div>
+
+  <div id="roadmaps">
+    <!-- VLSI EXTREME DETAIL -->
+    <div class="roadmap-detail" id="vlsi-roadmap"><div class="roadmap-header"><h2>🔬 VLSI/ASIC Engineer (Full Flow)</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>📘 1. Foundational & RTL</h3><ul><li>Digital logic, CMOS basics, Combinational/Sequential, FSM, metastability, clock domains</li><li>RTL design with Verilog/SystemVerilog: blocking/non-blocking, parameterized modules, packages, interfaces</li><li>CDC (Clock Domain Crossing) techniques: 2-flop, gray encoding, FIFOs, handshake</li><li>Linting (SpyGlass) & CDC checks; Synthesis constraints (.sdc), timing paths, clock definitions</li></ul></div>
+      <div class="roadmap-section"><h3>🛠️ 2. Synthesis & STA</h3><ul><li>Logic synthesis: Design Compiler/Genus – area, power, timing trade-offs; multicycle paths, false paths</li><li>Static Timing Analysis (PrimeTime/Tempus): setup/hold, OCV, AOCV, derates. Timing corners (SS, FF, TT)</li><li>Low power: UPF flow, power gating, voltage islands, clock gating insertion</li><li>DFT: Scan chain insertion, ATPG, coverage improvement, boundary scan, JTAG 1149.1, BIST (Memory BIST)</li></ul></div>
+      <div class="roadmap-section"><h3>⚙️ 3. Physical Design (PnR)</h3><ul><li>Floorplan: macros placement, power planning (ring/stripes), placement blockage, IO ring</li><li>Placement: standard cells, congestion analysis, optimization; CTS (Clock Tree Synthesis): skew, latency, buffers</li><li>Routing: global/detail routing, DRC fixing, signal integrity (crosstalk, shielding)</li><li>Signoff: DRC/LVS with Calibre/ICV, EM/IR analysis, physical verification</li></ul></div>
+      <div class="roadmap-section"><h3>📌 Year-wise Mastery</h3><div class="year-progression"><div class="year-card"><h4>0-2 Yrs</h4><p>RTL design, simulation, basic scripts; understand synthesis flow</p></div><div class="year-card"><h4>2-4 Yrs</h4><p>Own full module PnR, STA closure, tape-out support</p></div><div class="year-card"><h4>4-7 Yrs</h4><p>Hierarchical design, multi-voltage, advanced node (7nm/5nm), lead engineer</p></div><div class="year-card"><h4>7+ Yrs</h4><p>SoC integration, chip architect, DFX, team management</p></div></div></div>
+      <div class="roadmap-section"><h3>🎓 Certifications & Tools</h3><ul><li>VLSI courses: CDAC, IITs (online), Synopsys University, Cadence Academic Network</li><li>Tool certifications: Physical Design (Innovus/ICC2), STA (PrimeTime), DFT (Tessent)</li><li>Scripting: Tcl, Python, Perl. Version control: Git, Perforce</li><li>Reading: "CMOS VLSI Design" (Weste Harris), "Digital Integrated Circuits" (Rabaey)</li></ul></div></div>
+
+    <!-- Embedded Engineer -->
+    <div class="roadmap-detail" id="embedded-roadmap"><div class="roadmap-header"><h2>⚡ Embedded Systems Engineer</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>🔹 1. Core Embedded Programming</h3><ul><li>Embedded C (pointers, bitwise, volatile, const, static, memory sections), C++ for embedded (RAII, templates, constexpr)</li><li>ARM Cortex-M (M0/M4/M7) architecture: NVIC, memory map, MPU, SysTick</li><li>Peripheral drivers: GPIO, UART, I2C, SPI, I2S, Quad SPI, Timers (PWM, capture), ADC, DAC, DMA</li><li>Interrupt management: priority, nesting, latency, deferred handlers (ISR vs task)</li><li>Low-level: linker script, startup code, vector table, heap/stack management, bootloader design (SD card, USB DFU, OTA)</li></ul></div>
+      <div class="roadmap-section"><h3>🧠 2. RTOS & Middleware</h3><ul><li>FreeRTOS: tasks, queues, semaphores, mutex, event groups, software timers, stream buffers</li><li>Advanced RTOS: Zephyr (device tree, drivers), ThreadX, Azure RTOS</li><li>Embedded Linux: Yocto, Buildroot, device tree, kernel modules, char drivers, UIO, SPI/I2C userspace</li><li>Communication stacks: BLE stack (Nordic SDK), LoRaWAN, MQTT, COAP, LwIP, TCP/IP over Ethernet</li></ul></div>
+      <div class="roadmap-section"><h3>🛠️ 3. Toolchain & Debugging</h3><ul><li>IDEs: STM32CubeIDE, Keil MDK, IAR, VS Code + Cortex-Debug, Eclipse</li><li>Debug probes: J-Link, ST-Link, Black Magic Probe, GDB, Ozone, SystemView, Tracealyzer</li><li>Hardware tools: oscilloscope, logic analyzer (Saleae), multimeter, spectrum analyzer for EMI issues</li><li>CI for embedded: Jenkins, GitLab runners, static analysis (Coverity, clang-tidy), unit testing (Ceedling, Unity)</li></ul></div>
+      <div class="roadmap-section"><h3>📈 Industry Verticals & Certifications</h3><ul><li>Automotive (AUTOSAR), Medical (IEC 62304), Industrial (PLC, fieldbus), Aerospace (DO-178C), Consumer (smart home, wearables)</li><li>Certifications: ARM Accredited Engineer, RTOS-specific (FreeRTOS, Zephyr), Embedded Linux (LFCS), SafeRTOS</li></ul></div></div>
+
+    <!-- 5G Telecom -->
+    <div class="roadmap-detail" id="telecom-roadmap"><div class="roadmap-header"><h2>📶 5G / Telecom Expert</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>🎯 5G System Engineering</h3><ul><li>5G NR: numerologies, subcarrier spacing, FR1/FR2, Massive MIMO, beamforming, beam management</li><li>Protocol stack (CU/DU split): SDAP, PDCP, RLC, MAC, RRC, NGAP, XnAP; F1 interface</li><li>5G Core: AMF, SMF, UPF, NRF, NSSF, network slicing, QoS flows, PDU sessions</li><li>O-RAN architecture: O-Cloud, Near-RT RIC, SMO, xApps/rApps, E2 interface, RAN intelligent controller</li></ul></div>
+      <div class="roadmap-section"><h3>📡 RF Planning & Optimization</h3><ul><li>Cell planning: coverage prediction, link budget, propagation models (Okumura-Hata, COST231, Ray-tracing)</li><li>Drive test tools: TEMS, NEMO, QXDM, XCAL; post-processing: Actix, WindCatcher</li><li>Optimization KPIs: SINR, RSRP, RSRQ, CQI, BLER, handover success, call drop, throughput</li><li>SON (Self-Organizing Networks): ANR, MLB, MRO, PCI conflict resolution</li></ul></div>
+      <div class="roadmap-section"><h3>📚 Certifications & Path</h3><ul><li>Nokia 5G Cert, Ericsson 5G RAN, Huawei HCIA-5G, CWNA, CCNA/CCNP (Wireless)</li><li>SDN/NFV: OpenStack, ONAP, VNF, MANO</li><li>Job ladder: RF Engineer → RAN Optimization → Core Engineer → Solution Architect → CTO track</li></ul></div></div>
+
+    <!-- DSP -->
+    <div class="roadmap-detail" id="signal-roadmap"><div class="roadmap-header"><h2>🎛️ Signal Processing Specialist</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>📐 Mathematical Deep Dive</h3><ul><li>Discrete-time signals, convolution, correlation, Z-transform, DTFT, DFT/FFT (radix-2, decimation), DCT, Hilbert transform</li><li>Digital filters: FIR design (window, Parks-McClellan), IIR (Bilinear transform, Butterworth, Chebyshev, Elliptic), lattice filters</li><li>Adaptive filters: LMS, RLS, affine projection, echo cancellation, noise cancellation (ANC), system identification</li><li>Multirate: decimation, interpolation, polyphase filters, filter banks, Wavelet transform, subband coding</li><li>Statistical SP: random processes, spectral density, Wiener filter, Kalman filter, particle filters, estimation/detection theory</li></ul></div>
+      <div class="roadmap-section"><h3>🖥️ Application Domains</h3><ul><li>Audio: echo cancellation, speech enhancement, beamforming, MP3/AAC codec basics, pitch detection, MFCC for voice recognition</li><li>Radar/Sonar: pulse Doppler processing, FMCW ranging, SAR imaging, DOA estimation (MUSIC, ESPRIT), STAP</li><li>Image/Video: edge detection, image restoration, JPEG compression, motion estimation, H.264 intra prediction, OpenCV integration</li><li>Biomedical: ECG/EEG filtering, QRS detection, wavelet denoising, seizure prediction</li></ul></div>
+      <div class="roadmap-section"><h3>💻 Tools & ML integration</h3><ul><li>MATLAB/Simulink (DSP System Toolbox, Phased Array Toolbox), Python (NumPy, SciPy, PyTorch, Librosa, RFSoC)</li><li>GNU Radio + USRP for SDR prototyping, Jupyter for algorithm exploration</li><li>Certifications: IEEE Signal Processing Society, Coursera DSP (EPFL), Deep Learning for Signals (DeepSig)</li></ul></div></div>
+
+    <!-- RF Microwave -->
+    <div class="roadmap-detail" id="rf-roadmap"><div class="roadmap-header"><h2>📡 RF & Microwave Engineer</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>📐 RF Fundamentals & Design</h3><ul><li>Transmission line modes: microstrip, stripline, CPW, waveguide. Characteristic impedance, reflection, VSWR, return loss</li><li>Smith chart: impedance matching (L-networks, Pi/T networks, stub matching, λ/4 transformers), Q factor, bandwidth</li><li>S-parameters: measurement, conversion to Z/Y, stability (K, μ factor), gain circles, noise circles, constant VSWR</li><li>RF components: LNA design (NF, gain, IP3), Mixer (passive/active, conversion loss), VCO/PLL (phase noise), Power Amplifier (class A, AB, C, E, F, Doherty), RF filters (LC, ceramic, SAW, BAW)</li><li>Antenna theory: dipole, patch, Yagi, helical, horn, parabolic, array antennas, beam steering, phased arrays, MIMO</li></ul></div>
+      <div class="roadmap-section"><h3>🧪 Simulation & Measurement</h3><ul><li>EM simulation: Keysight ADS (RFPro), AWR MWO, HFSS (3D), CST Studio, FEKO, EMPro</li><li>PCB design for RF: Altium RF, Cadence AWR, controlled impedance, RF shielding, grounding techniques</li><li>Instrumentation: VNA (2/4 port), Spectrum Analyzer (phase noise, occupied BW), Signal Generator, Noise Figure Meter, Power Meter, Probe station, Anechoic chamber testing</li></ul></div></div>
+
+    <!-- Hardware PCB -->
+    <div class="roadmap-detail" id="hardware-roadmap"><div class="roadmap-header"><h2>🔧 High-Speed Hardware Design</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>⚡ Schematics & Component Engineering</h3><ul><li>Component selection: parametric search (DigiKey, Mouser), derating, lifecycle management, alternative sourcing, BOM cost optimization</li><li>Power electronics: DC-DC converters (Buck, Boost, SEPIC, Ćuk), LDO selection, inrush current, load transient, PSRR, thermal management</li><li>High-speed interfaces: DDR3/DDR4/DDR5 routing guidelines (length matching, Vref, CA bus), PCIe Gen3/4/5, USB 3.2, HDMI 2.1, MIPI DSI/CSI, Ethernet 10G, SERDES</li><li>Analog front-end: op-amp circuits, ADC/DAC selection, anti-aliasing filters, precision references, instrumentation amps</li></ul></div>
+      <div class="roadmap-section"><h3>📐 PCB Layout & Signal Integrity</h3><ul><li>Stackup design: impedance control (50Ω, 90Ω differential), stackup planning for DDR/PCIe, microstrip/stripline</li><li>High-speed layout: matched length, via transitions, serpentines, backdrilling, routing layers assignment</li><li>Signal Integrity: HyperLynx, Ansys SIwave – eye diagram, crosstalk, return loss, TDR simulation, S-parameter extraction</li><li>Power Integrity: IR drop analysis, decoupling capacitor placement, PDN impedance, resonant modes, AC simulation</li><li>EMI/EMC design: filtering, shielding, split planes, ferrite beads, pre-compliance testing (radiated/conducted)</li></ul></div>
+      <div class="roadmap-section"><h3>🏭 Certification & Tools</h3><ul><li>Altium Designer, Cadence Allegro, OrCAD, Mentor Xpedition, KiCad, Fusion 360</li><li>IPC CID (Certified Interconnect Designer), IPC 610/620, DFM workshop, Ansys training</li></ul></div></div>
+
+    <!-- Verification -->
+    <div class="roadmap-detail" id="verification-roadmap"><div class="roadmap-header"><h2>✅ ASIC/FPGA Verification (UVM)</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>📚 SystemVerilog & UVM Deep</h3><ul><li>SV enhancements: OOP, randomization (rand, randc), constraints, inside/dist, post_randomize, functional coverage (covergroup, bins, cross)</li><li>UVM: component hierarchy (uvm_component, uvm_test, uvm_env, uvm_agent, uvm_driver, uvm_monitor, uvm_sequencer, uvm_scoreboard)</li><li>Sequences & sequencers: sequence arbitration, virtual sequences, layered sequences, sequence library</li><li>Register layer (RAL): field access, backdoor/frontdoor, built-in tests</li><li>Coverage-driven verification: functional coverage points, covergroups, cross coverage, coverage closure metrics</li></ul></div>
+      <div class="roadmap-section"><h3>🛠️ Tools & Formal</h3><ul><li>Simulators: Synopsys VCS, Cadence Xcelium, Mentor Questa, Aldec Riviera-PRO</li><li>Formal verification: JasperGold, VC Formal, property checking (SVA), assertions, assume-guarantee</li><li>Verification IP (VIP): PCIe, USB, DDR, Ethernet, AXI/AHB. VIP integration, test suite development</li><li>Scripting: Python, Perl, Tcl for regressions, log parsing, coverage database merging</li></ul></div></div>
+
+    <!-- IoT -->
+    <div class="roadmap-detail" id="iot-roadmap"><div class="roadmap-header"><h2>🌍 Full-Stack IoT Engineer</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>📟 Device Layer</h3><ul><li>MCUs: ESP32 (WiFi/BT), nRF52 (BLE), STM32WL (LoRa), RP2040/Pico, TI CC1352 (dual-band)</li><li>Sensor fusion: IMU (MPU6050, BMI160), environmental (BME280, SHT30), GNSS (GPS/GLONASS/QZSS), biosensors (MAX30102)</li><li>Low-power optimization: deep sleep, wake-up sources, RTC, low-power peripherals, energy profiling</li><li>Wireless connectivity: LoRaWAN (The Things Network), NB-IoT (SIM7020), LTE-M, Zigbee, Thread/Matter, BLE 5.2 advertising</li></ul></div>
+      <div class="roadmap-section"><h3>☁️ Cloud & Analytics</h3><ul><li>AWS IoT Core (MQTT, Device Shadow, Rules Engine, Fleet Provisioning), Azure IoT Hub (DPS, Edge), GCP IoT Core</li><li>Protocols: MQTT (QoS levels), CoAP, HTTP/2, WebSockets, gRPC</li><li>Backend: Node-RED, InfluxDB + Telegraf, Grafana dashboards, TimescaleDB, Kafka stream processing</li><li>Edge AI: TensorFlow Lite Micro, Edge Impulse, microTVM, CMSIS-NN on MCUs</li><li>OTA (Over-the-Air): MQTT + secure boot (mbedTLS, ATECC608), partition management, rollback protection</li></ul></div></div>
+
+    <!-- Automotive -->
+    <div class="roadmap-detail" id="automotive-roadmap"><div class="roadmap-header"><h2>🚗 Automotive Electronics (ISO 26262)</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>🔌 Automotive Comms</h3><ul><li>CAN / CAN FD (ISO 11898), LIN, FlexRay, Automotive Ethernet (AVB, TSN, gPTP), SOME/IP, DoIP</li><li>Tools: Vector CANoe/CANalyzer, CAPL scripting, CANdelaStudio, vFlash, PREEvision</li><li>AUTOSAR Classic (CP): BSW, RTE, SW-C, MCAL, CDD, OS tasks, NvM, EcuM, WdgM</li><li>AUTOSAR Adaptive: POSIX, C++, RESTful, SOM, ara::com, configuration (C++ code generation)</li></ul></div>
+      <div class="roadmap-section"><h3>⚠️ Functional Safety & ADAS</h3><ul><li>ISO 26262: ASIL levels (A to D), HARA, FMEA, FTA, safety goals, DIA, fault injection tests</li><li>ADAS sensors: Radar (24/77GHz), LiDAR (HDL-64E), camera (monocular, stereo), fusion, perception stack (YOLOv8, PointPillars)</li><li>V2X: DSRC (IEEE 802.11p), C-V2X (Rel-14/15), message sets (BSM, CAM, DENM)</li><li>Cybersecurity: ISO/SAE 21434, secure boot, HSM (AES, RSA, ECC), evita HSM, SHE, secure OTA</li></ul></div></div>
+
+    <!-- ML for ECE -->
+    <div class="roadmap-detail" id="mlece-roadmap"><div class="roadmap-header"><h2>🧠 TinyML / Edge AI Engineer</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>📊 Model Optimization</h3><ul><li>Quantization: int8, uint8, float16, per-channel, post-training quantization (PTQ), QAT (Quantization-aware training)</li><li>Pruning: magnitude-based, structured/unstructured, sparsity, lottery ticket hypothesis</li><li>Distillation: teacher-student, hard/soft labels, feature distillation, TinyBERT</li><li>Compiler optimization: TFLite Micro, TVM, Glow, XNNPACK, CMSIS-NN, Ethos-U NPU</li></ul></div>
+      <div class="roadmap-section"><h3>🧩 Applications & Frameworks</h3><ul><li>Keyword spotting (KWS), wake word detection, Person detection, anomaly detection (vibration, current), predictive maintenance</li><li>Radio ML: modulation recognition (RML), spectrum sensing, autoencoders for CSI compression, channel estimation with ML</li><li>Hardware: Edge TPU, NVIDIA Jetson, Kendryte K210, GreenWaves GAP9, ARM Ethos-U55</li><li>Frameworks: TensorFlow Lite Micro, Edge Impulse, SensiML, STM32Cube.AI, X-CUBE-AI, Neuton TinyML</li></ul></div></div>
+
+    <!-- Firmware -->
+    <div class="roadmap-detail" id="firmware-roadmap"><div class="roadmap-header"><h2>⚙️ Firmware Engineer</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>🔧 Bare-metal & RTOS</h3><ul><li>Startup code, vector table relocation, MPU configuration, MMU (Cortex-A), linker scripts</li><li>Device driver architecture: char, block, network; interrupt coalescing, DMA scatter-gather</li><li>Bootloader: UART, I2C, SPI, USB DFU, SD card, dual-image, CRC check, secure boot</li><li>Memory profiling, static analysis, build systems: CMake, Meson, Make</li></ul></div></div>
+    
+    <!-- FPGA -->
+    <div class="roadmap-detail" id="fpgacpld-roadmap"><div class="roadmap-header"><h2>🥇 FPGA / RTL Engineer</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>📌 High-performance RTL</h3><ul><li>Advanced Verilog/SystemVerilog for synthesis: interfaces, clocking blocks, always_ff, always_comb</li><li>Timing closure: retiming, floorplanning, incremental compilation, multi-clock constraints</li><li>High-speed transceivers: GTY/GTH, FPGA hard IP: PCIe, JESD204B, 100G Ethernet</li><li>HLS (Vitis HLS): C++ to RTL, pipeline directives, array partitioning</li><li>IP integration: AXI4, custom IP cores, debugging via ChipScope/SignalTap</li></ul></div></div>
+
+    <!-- Robotics -->
+    <div class="roadmap-detail" id="robotics-roadmap"><div class="roadmap-header"><h2>🤖 Robotics Engineer (ROS2)</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>🎯 Autonomy & Control</h3><ul><li>ROS2 (Humble/Iron): nodes, topics, services, actions, QoS, lifecycle nodes, launch files</li><li>Simulation: Gazebo, RViz2, Webots, Isaac Sim, URDF/XACRO, TF2 transforms</li><li>Navigation: SLAM (Cartographer), AMCL, Nav2, path planning (A*, RRT)</li><li>Robotic arm: kinematics, MoveIt2, motion planning, ROS2 control</li><li>Embedded for robotics: micro-ROS, FreeRTOS+ROS2, Teensy, Odrive</li></ul></div></div>
+
+    <!-- Government PSU -->
+    <div class="roadmap-detail" id="govt-roadmap"><div class="roadmap-header"><h2>🏛️ Government PSU (GATE EC)</h2><button class="close-btn"><i class="fas fa-times"></i></button></div>
+      <div class="roadmap-section"><h3>📘 Syllabus & Strategy</h3><ul><li>Core subjects: Networks, Signals & Systems, EDC, Analog, Digital, Communications, Control, EMFT</li><li>Recommended books: Razavi, Oppenheim, Taub, Haykin, Kuo</li><li>PSUs through GATE: ISRO, DRDO, BARC, BEL, ECIL, BSNL, NPCIL, Power Grid</li><li>Separate exams: SSC JE, State PSC AE</li></ul></div>
+      <div class="roadmap-section"><h3>✅ Preparation Plan</h3><ul><li>8-month plan: Concept building, problem solving, full-length mocks</li><li>Interview prep: current affairs (defense, space), technical projects</li><li>Benefits: 7th CPC pay, medical, pension, housing, job security</li></ul></div></div>
+  </div>
+
+  <div id="resources" style="margin: 3rem 0; background: #e9f2f5; border-radius: 28px; padding: 2rem;">
+    <h3 style="color: var(--primary);"><i class="fas fa-database"></i> Ultra Learning Library</h3>
+    <div class="grid-2col">
+      <ul><li><strong>📘 Textbooks:</strong> Razavi, Weste, Pozar, Hambley</li><li><strong>🎓 MOOCs:</strong> NPTEL, Coursera, Udacity</li><li><strong>🛠️ Tools:</strong> KiCad, Verilator, PlatformIO, Edge Impulse</li></ul>
+      <ul><li><strong>📡 Communities:</strong> IEEE, r/ECE, EEVblog</li><li><strong>🧪 Projects:</strong> CPU on FPGA, BLE sensor, CAN logger</li><li><strong>📜 Career:</strong> GATE overflow, Interview experiences</li></ul>
+    </div>
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div><h4>ECE UltraRoadmap</h4><p>2500+ lines, 15+ roles, depth of year-wise skills, tools & certifications.</p></div>
+    <div><h4>Popular Roles</h4><a href="#" class="role-link" data-roadmap="vlsi">VLSI/ASIC</a><a href="#" class="role-link" data-roadmap="embedded">Embedded</a><a href="#" class="role-link" data-roadmap="govt">GATE/PSU</a></div>
+    <div><h4>Resources</h4><a href="#resources">Mega Library</a><a href="#">Interview Q/A</a><a href="#">Project Ideas</a></div>
+    <div><h4>Contact</h4><p><i class="fas fa-envelope"></i> ece.ultra@roadmap.com</p><p><i class="fab fa-linkedin"></i> ECE Career Hub</p></div>
+  </div>
+  <div class="footer-bottom">© 2026 — Electronics & Communication Engineering Ultimate Career Roadmap. All rights reserved.</div>
+</footer>
+
+<script>
+  (function() {
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburgerBtn'), mobileNav = document.getElementById('mobileNav'), closeBtn = document.getElementById('closeMenuBtn'), overlay = document.getElementById('overlay');
+    function openMenu() { mobileNav.classList.add('open'); overlay.classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeMenu() { mobileNav.classList.remove('open'); overlay.classList.remove('active'); document.body.style.overflow = ''; }
+    if(hamburger) hamburger.addEventListener('click', openMenu);
+    if(closeBtn) closeBtn.addEventListener('click', closeMenu);
+    if(overlay) overlay.addEventListener('click', closeMenu);
+    document.querySelectorAll('.mobile-nav a').forEach(ln => ln.addEventListener('click', closeMenu));
+    
+    // Role cards & footer role links
+    const cards = document.querySelectorAll('.role-card'), details = document.querySelectorAll('.roadmap-detail'), closeBtns = document.querySelectorAll('.close-btn'), footerLinks = document.querySelectorAll('.role-link');
+    function showRoadmap(id) { 
+      details.forEach(d => d.classList.remove('active')); 
+      const t = document.getElementById(id); 
+      if(t) { t.classList.add('active'); t.scrollIntoView({ behavior: 'smooth', block: 'start' }); } 
+    }
+    cards.forEach(c => c.addEventListener('click', () => { const r = c.getAttribute('data-roadmap'); if(r) showRoadmap(`${r}-roadmap`); }));
+    footerLinks.forEach(link => link.addEventListener('click', (e) => { e.preventDefault(); const r = link.getAttribute('data-roadmap'); if(r) showRoadmap(`${r}-roadmap`); }));
+    closeBtns.forEach(btn => btn.addEventListener('click', function() { this.closest('.roadmap-detail').classList.remove('active'); }));
+    
+    // Deep Guides link handler
+    const deepGuidesDesktop = document.getElementById('deepGuidesLink');
+    const deepGuidesMobile = document.querySelector('.mobile-deep-link');
+    const roadmapsContainer = document.getElementById('roadmaps-section');
+    
+    function handleDeepGuides(e) {
+      e.preventDefault();
+      if(roadmapsContainer) {
+        roadmapsContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        roadmapsContainer.style.transition = 'background 0.3s';
+        roadmapsContainer.style.background = '#fff3e0';
+        setTimeout(() => { if(roadmapsContainer) roadmapsContainer.style.background = ''; }, 600);
+      }
+    }
+    if(deepGuidesDesktop) deepGuidesDesktop.addEventListener('click', handleDeepGuides);
+    if(deepGuidesMobile) deepGuidesMobile.addEventListener('click', handleDeepGuides);
+    
+    // Smooth scroll for all hash links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if(href !== '#' && document.querySelector(href)) {
+          e.preventDefault();
+          document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+  })();
+</script>
+</body>
+</html>
